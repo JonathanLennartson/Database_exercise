@@ -1,4 +1,4 @@
-package business_object;
+package entities;
 
 public class Office {
 

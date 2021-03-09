@@ -1,20 +1,18 @@
-package business_object;
+package entities;
 
-
-public class Customer {
+public class Employee {
 
 	private int id;
 	private String name;
 	private String email;
 	private String adress;
 	private String commentary;
-	private String organisation;
-	private String discountGroup;	
-	
-	public Customer() {
-	}
-	
+	private String officeId;
 
+	public Employee() {
+	}
+
+	
 	public int getId() {
 		return id;
 	}
@@ -55,20 +53,12 @@ public class Customer {
 		this.commentary = commentary;
 	}
 
-	public String getOrganisation() {
-		return organisation;
+	public String getOfficeId() {
+		return officeId;
 	}
 
-	public void setOrganisation(String organisation) {
-		this.organisation = organisation;
-	}
-
-	public String getDiscountGroup() {
-		return discountGroup;
-	}
-
-	public void setDiscountGroup(String discountGroup) {
-		this.discountGroup = discountGroup;
+	public void setOfficeId(String officeId) {
+		this.officeId = officeId;
 	}
 
 }
