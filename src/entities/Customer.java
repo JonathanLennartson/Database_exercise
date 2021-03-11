@@ -9,8 +9,16 @@ public class Customer {
 	private String adress;
 	private String commentary;
 	private String organisation;
-	private String discountGroup;	
+	private int discountGroup;	
 	
+	
+	
+	@Override
+	public String toString() {
+		return "[Customer id = " + id + " | name = " + name + " | email = " + email + " | organisation = " + organisation + "]";
+	}
+
+
 	public Customer() {
 	}
 	
@@ -63,11 +71,11 @@ public class Customer {
 		this.organisation = organisation;
 	}
 
-	public String getDiscountGroup() {
+	public int getDiscountGroup() {
 		return discountGroup;
 	}
 
-	public void setDiscountGroup(String discountGroup) {
+	public void setDiscountGroup(int discountGroup) {
 		this.discountGroup = discountGroup;
 	}
 

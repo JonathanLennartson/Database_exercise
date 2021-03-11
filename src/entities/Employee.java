@@ -7,7 +7,15 @@ public class Employee {
 	private String email;
 	private String adress;
 	private String commentary;
-	private String officeId;
+	private int officeId;
+
+	
+	
+	@Override
+	public String toString() {
+		return "[Employee id = " + id + " | name = " + name + " | email = " + email + "]";
+	}
+
 
 	public Employee() {
 	}
@@ -53,11 +61,11 @@ public class Employee {
 		this.commentary = commentary;
 	}
 
-	public String getOfficeId() {
+	public int getOfficeId() {
 		return officeId;
 	}
 
-	public void setOfficeId(String officeId) {
+	public void setOfficeId(int officeId) {
 		this.officeId = officeId;
 	}
 
