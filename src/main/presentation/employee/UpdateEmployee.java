@@ -61,9 +61,7 @@ public class UpdateEmployee {
 			throw new IllegalArgumentException("Unexpected value: " + choice);
 		}
 		
-		employeeDAO.update(employee);		
-		
-		scanner.close();
+		employeeDAO.update(employee);
 		
 		System.out.println();
 	}

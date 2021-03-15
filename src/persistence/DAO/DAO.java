@@ -13,6 +13,6 @@ public interface DAO<O> {
 	
 	void update(O o) throws SQLException;
 	
-	void delete(O o) throws SQLException;
+	void delete(int id) throws SQLException;
 	
 }

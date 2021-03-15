@@ -8,7 +8,7 @@ import persistence.DAO.CustomerDAO;
 public class GetSingleCustomer {
 	
 	
-	public void get() throws NumberFormatException, SQLException {
+	public static void get() throws NumberFormatException, SQLException {
 		Scanner scanner = new Scanner(System.in);		
 		CustomerDAO customerDAO = new CustomerDAO();
 		

@@ -82,8 +82,13 @@ public class EmployeeDAO implements DAO<Employee> {
 	}
 
 	@Override
-	public void delete(Employee o) throws SQLException {
-		// TODO Auto-generated method stub
+	public void delete(int id) throws SQLException {
+		Connection connection = ConnectionFactory.getConnection();
+		PreparedStatement statement = connection.prepareStatement("DELETE FROM employees WHERE employee_id = ?");
+		statement.setInt(1, id);
+		statement.executeUpdate();
+		
+		System.out.println("Anställd borttagen ur databasen\n");
 		
 	}
 

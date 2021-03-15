@@ -5,6 +5,7 @@ public class Warehouse {
 	private int id;
 	private String name;
 	private String adress;
+	private String city;
 
 	
 	public Warehouse() {
@@ -33,6 +34,16 @@ public class Warehouse {
 
 	public void setAdress(String adress) {
 		this.adress = adress;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 }

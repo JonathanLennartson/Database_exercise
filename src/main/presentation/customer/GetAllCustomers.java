@@ -6,7 +6,7 @@ import persistence.DAO.CustomerDAO;
 
 public class GetAllCustomers {
 	
-	public void getAll() throws SQLException {
+	public static void getAll() throws SQLException {
 		CustomerDAO customerDAO = new CustomerDAO();
 		
 		System.out.println("Lista alla kunder");

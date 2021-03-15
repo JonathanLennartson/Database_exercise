@@ -8,7 +8,7 @@ import persistence.DAO.EmployeeDAO;
 
 public class AddEmployee {
 
-	public void add() throws SQLException {
+	public static void add() throws SQLException {
 
 		Scanner scanner = new Scanner(System.in);
 		Employee employee = new Employee();

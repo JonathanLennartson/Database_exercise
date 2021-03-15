@@ -8,7 +8,7 @@ import persistence.DAO.CustomerDAO;
 
 public class AddCustomer {
 	
-	public void add() throws SQLException {
+	public static void add() throws SQLException {
 	
 	Scanner scanner = new Scanner(System.in);
 	Customer customer = new Customer();

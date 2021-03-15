@@ -87,10 +87,13 @@ public class CustomerDAO implements DAO<Customer>{
 	}
 
 	@Override
-	public void delete(Customer c) throws SQLException {
+	public void delete(int id) throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
-		PreparedStatement statement = connection.prepareStatement("");
+		PreparedStatement statement = connection.prepareStatement("DELETE FROM customers WHERE customer_id = ?");
+		statement.setInt(1, id);
+		statement.executeUpdate();
 		
+		System.out.println("Kund borttagen ur databasen\n");
 	}
 
 }

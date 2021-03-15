@@ -70,8 +70,6 @@ public class UpdateCustomer {
 		
 		customerDAO.update(customer);
 		
-		scanner.close();
-		
 		System.out.println();
 	}
 

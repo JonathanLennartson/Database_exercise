@@ -1,51 +1,48 @@
 package main;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Scanner;
 
-import entities.Customer;
-import main.presentation.customer.AddCustomer;
-import main.presentation.customer.GetAllCustomers;
-import main.presentation.customer.GetSingleCustomer;
-import main.presentation.customer.UpdateCustomer;
-import main.presentation.employee.AddEmployee;
-import main.presentation.employee.GetAllEmployees;
-import main.presentation.employee.GetSingleEmployee;
-import main.presentation.employee.UpdateEmployee;
-import persistence.DAO.CustomerDAO;
-import persistence.DAO.EmployeeDAO;
+import main.presentation.MenuJDBC;
 
 public class Main {
 
-	public static void main(String[] args) throws NumberFormatException, SQLException  {
-		CustomerDAO customerDAO = new CustomerDAO();		
-		GetSingleCustomer getSingleCustomer = new GetSingleCustomer();		
-		UpdateCustomer updateCustomer = new UpdateCustomer();
-		AddCustomer addCustomer = new AddCustomer();
-		EmployeeDAO employeeDAO = new EmployeeDAO();
-		AddEmployee addEmployee = new AddEmployee();
-		GetAllCustomers getAllCustomers = new GetAllCustomers();
-		
-		
-//		getAllCustomers.getAll();
-//		GetAllEmployees.getAll();
-//		addEmployee.addEmployee();
-		
-//		GetSingleEmployee.get();
-		
-//		UpdateEmployee.update();
-		
-//		addCustomer.addCustomer();
-		
-//		List<Customer> customers = customerDAO.readAll();
-//		for(Customer c : customers) {
-//			System.out.println("kund: " + c);
-//		}
-		
-		
-		updateCustomer.update();		
-//		getSingleCustomer.getCustomer();
+	public static void main(String[] args) throws NumberFormatException, SQLException {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Hej och välkommen!");
 
+		while (true) {
+			System.out.println("Vill du använda JDBC eller Hibernate eller avsluta");
+
+			String choice = scanner.nextLine();
+
+			switch (choice.toUpperCase()) {
+				case "JDBC": {
+					System.out.println("Du har valt att hantera persistens med JDBC\n");
+					MenuJDBC.jdbc();
+					continue;
+				}
+	
+				case "HIBERNATE": {
+					System.out.println("Du har valt att hantera persistens med Hibernate\n");
+	
+					continue;
+				}
+	
+				case "AVSLUTA": {
+					System.out.println("Hej då!");
+					break;
+				}
+	
+				default:
+					System.out.println("Ogiltigt val, försök igen");
+					continue;
+			}
+
+			
+			break;
+		
+		}
+		
 	}
-
 }
