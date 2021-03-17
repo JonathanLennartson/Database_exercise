@@ -15,7 +15,7 @@ public class ProductDAO implements DAO<Product> {
 	@Override
 	public void create(Product product) throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
-		PreparedStatement statement = connection.prepareStatement("INSERT INTO products(name, description, price, in_stock, warehouse) VALUES(?,?,?,?,?)");
+		PreparedStatement statement = connection.prepareStatement("INSERT INTO products(name, description, price, in_stock, warehouse_id) VALUES(?,?,?,?,?)");
 		statement.setString(1, product.getName());
 		statement.setString(2, product.getDescription());
 		statement.setDouble(3, product.getPrice());
@@ -39,7 +39,7 @@ public class ProductDAO implements DAO<Product> {
 			product.setDescription(rs.getString("description"));
 			product.setPrice(rs.getDouble("price"));
 			product.setStock(rs.getInt("in_stock"));
-			product.setWarehouseId(rs.getInt("warehouse"));
+			product.setWarehouseId(rs.getInt("warehouse_id"));
 			products.add(product);
 		}		
 		return products;
@@ -61,7 +61,7 @@ public class ProductDAO implements DAO<Product> {
 			product.setDescription(rs.getString("description"));
 			product.setPrice(rs.getDouble("price"));
 			product.setStock(rs.getInt("in_stock"));
-			product.setWarehouseId(rs.getInt("warehouse"));
+			product.setWarehouseId(rs.getInt("warehouse_id"));
 		}
 		
 		return product;
@@ -75,7 +75,7 @@ public class ProductDAO implements DAO<Product> {
 				+ "description = ?, "
 				+ "price = ?, "
 				+ "in_stock = ?, "
-				+ "warehouse = ? "
+				+ "warehouse_id = ? "
 				+ "WHERE product_id = ?");
 		statement.setString(1, product.getName());
 		statement.setString(2, product.getDescription());
@@ -95,6 +95,31 @@ public class ProductDAO implements DAO<Product> {
 		statement.executeUpdate();
 		
 		System.out.println("Produkt borttagen ur databasen\n");
+		
+	}
+	
+	public List<Product> lowStock() throws SQLException {
+		Connection connection = ConnectionFactory.getConnection();
+		PreparedStatement statement = connection.prepareStatement("SELECT * FROM products HAVING in_stock < 10");
+		ResultSet rs = statement.executeQuery();
+		
+		Product product = null;
+		List<Product> products = new ArrayList<>();
+		
+		while(rs.next()) {
+			product = new Product();
+			product.setId(rs.getInt("product_id"));
+			product.setName(rs.getString("name"));
+			product.setDescription(rs.getString("description"));
+			product.setPrice(rs.getDouble("price"));
+			product.setStock(rs.getInt("in_stock"));
+			product.setWarehouseId(rs.getInt("warehouse_id"));
+			
+			products.add(product);
+		}
+		
+		return products;
+		
 		
 	}
 

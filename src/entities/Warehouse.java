@@ -12,6 +12,12 @@ public class Warehouse {
 	}
 
 	
+	@Override
+	public String toString() {
+		return "Warehouse [id = " + id + " | name = " + name + " | adress = " + adress + " | city = " + city + "]";
+	}
+
+
 	public int getId() {
 		return id;
 	}

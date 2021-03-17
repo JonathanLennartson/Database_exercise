@@ -12,10 +12,9 @@ public class MenuEmployeeJDBC {
 			System.out.println("Menu för anställda\n" 
 					+ "1. Lägg till ny anställd\n" 
 					+ "2. Lista alla anställda\n"
-					+ "3. Se en anställd\n" 
-					+ "4. Uppdatera anställd\n" 
-					+ "5. Ta bort anställd\n" 
-					+ "6. Återgå");
+					+ "3. Uppdatera anställd\n" 
+					+ "4. Ta bort anställd\n" 
+					+ "5. Återgå");
 												
 			String choice = scanner.nextLine();		
 			
@@ -29,18 +28,14 @@ public class MenuEmployeeJDBC {
 					continue;
 				}
 				case "3": {
-					GetSingleEmployee.get();
-					continue;
-				}
-				case "4": {
 					UpdateEmployee.update();
 					continue;
 				}
-				case "5": {
+				case "4": {
 					DeleteEmloyee.delete();
 					continue;
 				}
-				case "6": {
+				case "5": {
 					break;
 				}
 				
@@ -49,7 +44,7 @@ public class MenuEmployeeJDBC {
 					continue;
 			}
 			
-			if (choice.equals("6")) {
+			if (choice.equals("5")) {
 				break;
 			}
 			

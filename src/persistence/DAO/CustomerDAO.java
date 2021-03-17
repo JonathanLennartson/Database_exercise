@@ -9,12 +9,13 @@ import java.util.List;
 import entities.Customer;
 import persistence.ConnectionFactory;
 
-public class CustomerDAO implements DAO<Customer>{
+public class CustomerDAO implements DAO<Customer> {
 
 	@Override
 	public void create(Customer c) throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
-		PreparedStatement statement = connection.prepareStatement("INSERT INTO customers(name, email, adress, commentary, organisation, discount_group) VALUES(?, ?, ?, ?, ?, ?)");
+		PreparedStatement statement = connection.prepareStatement(
+				"INSERT INTO customers(name, email, adress, commentary, organisation, discount_group) VALUES(?, ?, ?, ?, ?, ?)");
 		statement.setString(1, c.getName());
 		statement.setString(2, c.getEmail());
 		statement.setString(3, c.getAdress());
@@ -23,7 +24,7 @@ public class CustomerDAO implements DAO<Customer>{
 		statement.setInt(6, c.getDiscountGroup());
 		statement.executeUpdate();
 		System.out.println("New customer, " + c.getName() + ", added to database");
-		
+
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class CustomerDAO implements DAO<Customer>{
 		Connection connection = ConnectionFactory.getConnection();
 		PreparedStatement statement = connection.prepareStatement("SELECT * FROM customers");
 		ResultSet rs = statement.executeQuery();
-		
+
 		List<Customer> customers = new ArrayList<>();
 		while (rs.next()) {
 			Customer c = new Customer();
@@ -44,7 +45,7 @@ public class CustomerDAO implements DAO<Customer>{
 			c.setDiscountGroup(rs.getInt("discount_group"));
 			customers.add(c);
 		}
-		
+
 		return customers;
 	}
 
@@ -54,9 +55,9 @@ public class CustomerDAO implements DAO<Customer>{
 		PreparedStatement statement = connection.prepareStatement("SELECT * FROM customers WHERE customer_id = ?");
 		statement.setInt(1, id);
 		ResultSet rs = statement.executeQuery();
-		
+
 		Customer c = null;
-		if(rs.next()) {
+		if (rs.next()) {
 			c = new Customer();
 			c.setId(rs.getInt("customer_id"));
 			c.setName(rs.getString("name"));
@@ -64,16 +65,17 @@ public class CustomerDAO implements DAO<Customer>{
 			c.setAdress(rs.getString("adress"));
 			c.setCommentary(rs.getString("commentary"));
 			c.setOrganisation(rs.getString("organisation"));
-			c.setDiscountGroup(rs.getInt("discount_group"));			
+			c.setDiscountGroup(rs.getInt("discount_group"));
 		}
-		
+
 		return c;
 	}
 
 	@Override
 	public void update(Customer c) throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE customers SET name = ?, email = ?, adress = ?, commentary = ?, organisation = ?, discount_group = ? WHERE customer_id = ?");
+		PreparedStatement statement = connection.prepareStatement(
+				"UPDATE customers SET name = ?, email = ?, adress = ?, commentary = ?, organisation = ?, discount_group = ? WHERE customer_id = ?");
 		statement.setString(1, c.getName());
 		statement.setString(2, c.getEmail());
 		statement.setString(3, c.getAdress());
@@ -83,7 +85,7 @@ public class CustomerDAO implements DAO<Customer>{
 		statement.setInt(7, c.getId());
 		statement.executeUpdate();
 		System.out.println("Customer, " + c.getName() + ", updated in database");
-		
+
 	}
 
 	@Override
@@ -92,7 +94,7 @@ public class CustomerDAO implements DAO<Customer>{
 		PreparedStatement statement = connection.prepareStatement("DELETE FROM customers WHERE customer_id = ?");
 		statement.setInt(1, id);
 		statement.executeUpdate();
-		
+
 		System.out.println("Kund borttagen ur databasen\n");
 	}
 

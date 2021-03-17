@@ -81,7 +81,7 @@ public class OfficeDAO implements DAO<Office> {
 		PreparedStatement statement = connection.prepareStatement("DELETE FROM offices WHERE office_id = ?");
 		statement.setInt(1, id);
 		statement.executeUpdate();
-		System.out.println("Kontor bortaget i databasen.\n");
+		System.out.println("Kontor borttagen ur databasen.\n");
 	}
 
 }

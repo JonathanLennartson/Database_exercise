@@ -1,42 +1,42 @@
-package main.presentation.customer;
+package main.presentation.complaint;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class MenuCustomerJDBC {
-	
+public class MenuComplaintJDBC {
+
 	public static void show() throws SQLException {
 		Scanner scanner = new Scanner(System.in);
 		
 		while (true) {
-			System.out.println("Hantera kunder\n"
+			System.out.println("Hantera reklamationer\n"
 					+ "Vad vill du göra?\n"
-					+ "1. Lägg till ny kund\n"
-					+ "2. Lista alla kunder\n"
-					+ "3. Uppdatera kund\n"
-					+ "4. Ta bort kund\n"
+					+ "1. Lägg till ny reklamation\n"
+					+ "2. Lista alla reklamationer\n"
+					+ "3. Uppdatera reklamation\n"
+					+ "4. Ta bort reklamation\n"
 					+ "5. Återgå");
 			
 			String choice = scanner.nextLine();
 			
 			switch (choice) {
 				case "1": {
-					AddCustomer.add();
+					AddComplaint.add();
 					continue;
 				}
 	
 				case "2": {
-					GetAllCustomers.getAll();
+					GetAllComplaint.getAll();
 					continue;
 				}
 	
 				case "3": {
-					UpdateCustomer.update();
+					UpdateComplaint.update();
 					continue;
 				}
 	
 				case "4": {
-					DeleteCustomer.delete();
+					DeleteComplaint.delete();
 					continue;
 				}
 				

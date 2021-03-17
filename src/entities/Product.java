@@ -14,6 +14,13 @@ public class Product {
 	}
 
 	
+	@Override
+	public String toString() {
+		return "Product [id = " + id + " | name = " + name + " | description = " + description + " | price = " + price + " | stock = "
+				+ stock + " | warehouseId = " + warehouseId + "]";
+	}
+
+
 	public int getId() {
 		return id;
 	}

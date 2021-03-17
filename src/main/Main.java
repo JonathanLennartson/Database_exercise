@@ -12,7 +12,7 @@ public class Main {
 		System.out.println("Hej och välkommen!");
 
 		while (true) {
-			System.out.println("Vill du använda JDBC eller Hibernate eller avsluta");
+			System.out.println("Vill du använda JDBC eller Hibernate? Eller vill du avsluta?");
 
 			String choice = scanner.nextLine();
 
@@ -43,6 +43,6 @@ public class Main {
 			break;
 		
 		}
-		
+		scanner.close();
 	}
 }

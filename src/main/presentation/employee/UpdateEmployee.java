@@ -13,12 +13,11 @@ public class UpdateEmployee {
 		Scanner scanner = new Scanner(System.in);
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		
-		List<Employee> employees = employeeDAO.readAll();
-		for (Employee e : employees) {
+		for (Employee e : employeeDAO.readAll()) {
 			System.out.println(e);
 		}
 
-		System.out.println("\nVilket anställningsID gäller?");
+		System.out.println("\nVilket anställningsID gäller gäller ändringen?");
 		int id = Integer.valueOf(scanner.nextLine());
 		Employee employee = employeeDAO.read(id);
 
@@ -53,6 +52,9 @@ public class UpdateEmployee {
 			break;
 		}
 		case 5: {
+			
+			
+			
 			System.out.println("Nytt kontor:");
 			employee.setOfficeId(Integer.valueOf(scanner.nextLine()));
 			break;
@@ -66,6 +68,6 @@ public class UpdateEmployee {
 		System.out.println();
 	}
 		
-	}
+}
 
 

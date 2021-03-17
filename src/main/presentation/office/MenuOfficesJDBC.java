@@ -13,10 +13,9 @@ public class MenuOfficesJDBC {
 					+ "Vad vill du göra?\n"
 					+ "1. Öppna nytt kontor\n"
 					+ "2. Lista alla kontor\n"
-					+ "3. Se ett kontor\n"
-					+ "4. Uppdatera kontor\n"
-					+ "5. Stäng ett kontor\n"
-					+ "6. Återgå");
+					+ "3. Uppdatera kontor\n"
+					+ "4. Stäng ett kontor\n"
+					+ "5. Återgå");
 			
 			String choice = scanner.nextLine();
 			
@@ -32,21 +31,16 @@ public class MenuOfficesJDBC {
 			}
 
 			case "3": {
-				GetSingleOffice.get();
-				continue;
-			}
-
-			case "4": {
 				UpdateOffice.update();
 				continue;
 			}
 
-			case "5": {
+			case "4": {
 				DeleteOffice.delete();
 				continue;
 			}
 			
-			case "6": {
+			case "5": {
 				break;
 			}
 

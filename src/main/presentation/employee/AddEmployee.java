@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import entities.Employee;
+import entities.Office;
 import persistence.DAO.EmployeeDAO;
+import persistence.DAO.OfficeDAO;
 
 public class AddEmployee {
 
@@ -13,7 +15,8 @@ public class AddEmployee {
 		Scanner scanner = new Scanner(System.in);
 		Employee employee = new Employee();
 		EmployeeDAO employeeDAO = new EmployeeDAO();
-
+		OfficeDAO officeDAO = new OfficeDAO();
+		
 		System.out.println("Lägg till anställd");
 		System.out.println("Namn:");
 		employee.setName(scanner.nextLine());
@@ -27,9 +30,12 @@ public class AddEmployee {
 		System.out.println("Kommentar:");
 		employee.setCommentary(scanner.nextLine());
 
-		// Skriv ut vilka kontor som finns och välj ett efter dess id-nummer.
-
-		System.out.println("Kontor:");
+		System.out.println();
+		for(Office office : officeDAO.readAll()) {
+			System.out.println(office);
+		}
+		
+		System.out.println("KontorsID:");
 		employee.setOfficeId(Integer.valueOf(scanner.nextLine()));
 
 		employeeDAO.create(employee);

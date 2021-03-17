@@ -5,13 +5,25 @@ public class Complaint {
 	private int id;
 	private int customerId;
 	private int employeeId;
+	private String customer;
+	private String employee;
 	private String date;
 	private String complaint;
-	private Boolean handled;
-
+	private int orderId;
+	
 		
 	public Complaint() {
 	}
+
+	
+	
+	@Override
+	public String toString() {
+		return "Complaint [id = " + id + " | customer = " + customer + " | employeeId = " + employee + " | date = " + date
+				+ " | complaint = " + complaint + " | orderId = " + orderId + "]";
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -54,11 +66,36 @@ public class Complaint {
 		this.complaint = complaint;
 	}
 
-	public Boolean getHandled() {
-		return handled;
+	public int getOrderId() {
+		return orderId;
 	}
 
-	public void setHandled(Boolean handled) {
-		this.handled = handled;
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
+
+
+
+	public String getCustomer() {
+		return customer;
+	}
+
+
+
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+
+
+
+	public String getEmployee() {
+		return employee;
+	}
+
+
+
+	public void setEmployee(String employee) {
+		this.employee = employee;
+	}
+
 }
