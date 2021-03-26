@@ -9,7 +9,8 @@ public class Customer {
 	private String adress;
 	private String commentary;
 	private String organisation;
-	private int discountGroup;	
+	private int discountGroup;
+	private double totalPayment;
 	
 	
 	
@@ -18,6 +19,9 @@ public class Customer {
 		return "[Customer id = " + id + " | name = " + name + " | email = " + email + " | organisation = " + organisation + "]";
 	}
 
+	public String bestCustomer() {
+		return "[Customer id = " + id + " | name = " + name + " | total payment = " + totalPayment + "]";
+	}
 
 	public Customer() {
 	}
@@ -77,6 +81,14 @@ public class Customer {
 
 	public void setDiscountGroup(int discountGroup) {
 		this.discountGroup = discountGroup;
+	}
+
+	public double getTotalPayment() {
+		return totalPayment;
+	}
+
+	public void setTotalPayment(double totalPayment) {
+		this.totalPayment = totalPayment;
 	}
 
 }
